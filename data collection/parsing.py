@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 
 
-def search_url(name):
-    return "https://www.rulit.me/books/en/1/date?search=" + name
+def search_url(name, sort="date"):
+    return "https://www.rulit.me/books/en/1/" + sort + "?search=" + name
 
 
 def page_generator(url, max_val):
