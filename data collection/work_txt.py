@@ -1,19 +1,34 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import string
 
 
-def rewrite(str1, str2, maxx):
-    f = open(str1, 'r')
+def rewrite(str1, str2):
+    f = open(str1, "r")
     g = open(str2, "w")
     while True:
+        s = f.readline()
+        if not s:
+            break
+        eng = s.split('\t')[0]
+        rus = s.split('"')[-2]
+
+        g.write(eng + "\t" + rus.lower() + "\n")
+    f.close()
+    g.close()
+
+
+def more_rewrite(str1, str2):
+    f = open(str1, "r")
+    g = open(str2, "a")
+    words = count_words(str2)
+    while True:
         s0 = f.readline()
-        s1 = f.readline()
-        m = max(len(s0), len(s1))
-        if m <= maxx:
-            g.write(s0)
-            g.write(s1)
+        s1 = (f.readline().split('\t'))[0]
         if not s0:
             break
+        s0 = s0.replace('\n', '')
+        s1 = s1.replace('\n', '')
+        if len(s0.split(' ')) == 1 and len(s1) <= 59 and s0 not in words:
+            g.write(s0 + '\t' + s1 + '\n')
     f.close()
     g.close()
 
@@ -43,14 +58,41 @@ def len_distribution(str1, maxx):
     return m
 
 
-l = 255
-rewrite("ENRUS.TXT", "enrus1.txt", l)
-temp = len_distribution('enrus1.txt', l)
-for i in temp.items():
-    print(i)
+def count_symbols(text):
+    f = open(text, 'r')
+    a = dict()
+    while 1:
+        st = f.readline()
+        if not st:
+            break
+        for i in st:
+            if i in a:
+                a[i] += 1
+            else:
+                a[i] = 0
+    f.close()
+    return a
 
-x = np.array(list(temp.keys()))
-y = np.log(np.array(list(map(lambda z: z if z > 0 else 1, temp.values()))))
 
-plt.plot(x, y)
-plt.show()
+def count_words(text):
+    f = open(text, 'r')
+    a = dict()
+    while 1:
+        st = f.readline()
+        if not st:
+            break
+        temp = st.split('\t')[0]
+        if temp in a:
+            a[temp] += 1
+        else:
+            a[temp] = 1
+    f.close()
+    return set(a.keys())
+
+
+rewrite(r"dictionaries\best_dict1.txt", "final.txt")
+more_rewrite(r"dictionaries\enrus1.txt", 'final.txt')
+# for i in count_symbols(r"dictionaries\best_dict1.txt").items():
+#   print(i)
+
+print(len(count_words('final.txt')))
