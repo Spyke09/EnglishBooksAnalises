@@ -1,19 +1,22 @@
-def easy_words():
-    f = open(r'set of words\temp.txt', 'r')
-    g = open(r'set of words\temp1.txt', 'w')
-    l = []
+import data_base
+
+
+def words_gen():
+    f = open(r'set of words\3000.txt', 'r')
     while (1):
         a = f.readline()
+        a = a.replace("\n", '')
         if not a:
             break
-        a = a.replace('\n', '')
-        if (a != 'a'):
-            g.write(a + '\n')
-
+        yield a
     f.close()
 
 
-o = ['sdfs0', 'wdf']
-for i in o:
-    i = 'sdc'
-print(o)
+def easy_words():
+    for i in data_base.translate_gen(words_gen()):
+        if i[1] is None:
+            print(i)
+
+
+easy_words()
+

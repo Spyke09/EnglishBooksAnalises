@@ -1,8 +1,8 @@
-become (became, become)
-begin (began, begun)
+become
+begin
 start
 continue
-go on (went, gone)
+go
 stop
 end
 finish
@@ -10,23 +10,23 @@ last
 accomplish
 prepare
 postpone
-put off (put, put)
+put
 divide
-consist of
+consist
 include
 exclude
 incorporate
-split (split, split)
+split
 contain
 separate
 assemble
-go (went, gone)
-come (came, come)
+go
+come
 turn
-run (ran, run)
+run
 move
-bring (brought, brought)
-sit (sat, sat)
+bring
+sit
 stand
 follow
 stop
@@ -34,44 +34,44 @@ walk
 appear
 disappear
 remain
-leave (left, left)
+leave
 raise
 carry
-drive (drove, driven)
-throw (threw, trown)
+drive
+throw
 push
-lay (laid, laid)
-lie (lay, lain)
+lay
+lie
 arrive
-shake (shook, shaken)
-fly (flew, flown)
+shake
+fly
 stay
-fall (fell, fallen)
-wear (wore, worn)
+fall
+wear
 step
 roll
-ride (rode, ridden)
+ride
 lift
 jump
 approach
 cross
 climb
-bear (bore, born)
+bear
 shift
 slip
 rush
 land
 escape
 drag
-slide (slid, slid)
+slide
 toss
 accompany
-swing (swang, swung)
+swing
 advance
-swim (swam, swum)
+swim
 flee
-sink (sank, sunk)
-be (was, been)
+sink
+be
 exist
 include
 exclude
@@ -80,14 +80,14 @@ enter
 share
 remove
 receive
-lose (lost, lost)
-find (found, found)
-have (had, had)
-be present
-be absent
-get (got, got\gotten)
-take (took, taken)
-give (gave, given)
+lose
+find
+have
+be
+be
+get
+take
+give
 return
 join
 involve
@@ -100,24 +100,24 @@ disappear
 obtain
 belong
 limit
-spread (spread, spread)
+spread
 extend
 acquire
 abandon
-arise (arose, arisen)
+arise
 possess
-leave (left, left)
+leave
 occupy
 work
-keep (kept, kept)
+keep
 help
-write (wrote, written)
+write
 provide
-pay (paid, paid)
-lead (led, led)
+pay
+lead
 create
 serve
-build (built, built)
+build
 develop
 base
 realize
@@ -142,8 +142,8 @@ achieve
 conduct
 attend
 complete
-handle (Handle with care)
-handle (I can handle it)
+handle
+handle
 deliver
 operate
 order
@@ -156,10 +156,10 @@ direct
 solve
 file
 employ
-make (made, made)
+make
 try
 happen
-set (set, set)
+set
 seek
 fill
 pass
@@ -173,7 +173,7 @@ launch
 adjust
 succeed
 review
-arrange (an event)
+arrange
 benefit
 coach
 exercise
@@ -192,25 +192,25 @@ preserve
 guide
 illustrate
 deserve
-face (something)
+face
 cause
-teach (taught, taught)
-can (could) 
-know (knew, known)
-think (thought, thought)
-see (saw, seen)
+teach
+can
+know
+think
+see
 want
 look
 need
-feel (felt, felt)
-mean (meant, meant)
+feel
+mean
 seem
-hear (heard, heard)
+hear
 like
 believe
-learn (learnt, learnt)
+learn
 watch
-read (read, read)
+read
 remember
 love
 decide
@@ -223,9 +223,9 @@ identify
 determine
 recognize
 compare
-miss (someone)
+miss
 study
-forget (forgot, forgotten)
+forget
 imagine
 discover
 worry
@@ -234,7 +234,7 @@ experience
 tend
 notice
 wish
-figure out
+figure
 suffer
 recall
 stare
@@ -255,7 +255,7 @@ conclude
 prefer
 appreciate
 trust
-rely on
+rely
 question
 regard
 suspect
@@ -264,22 +264,22 @@ perceive
 inspire
 analyze
 concentrate
-smell (smelt, smelt)
+smell
 glance
-dream (dreamt, dreamt)
+dream
 react
 choose
 expect
 miss
 realize
-say (said, said)
-tell (told, told)
+say
+tell
 call
 ask
 talk
-meet (met, met)
-understand (understood, understood)
-speak (spoke, spoken)
+meet
+understand
+speak
 allow
 offer
 consider
@@ -292,8 +292,8 @@ agree
 describe
 represent
 lie
-tell the truth (told, told)
-mean (meant, meant)
+tell
+mean
 argue
 wonder
 name
@@ -312,7 +312,7 @@ mention
 care
 avoid
 support
-sing (sang, sung)
+sing
 address
 smile
 admit
@@ -336,7 +336,7 @@ repeat
 recommend
 propose
 declare
-matter (It doesn't matter)
+matter
 judge
 ensure
 challenge
@@ -365,7 +365,7 @@ interview
 quote
 urge
 whisper
-favor (favour)
+favor
 comment
 negotiate
 advise
@@ -389,18 +389,18 @@ honor
 encounter
 dominate
 accept
-let (let, let)
+let
 date
-win (won, won)
+win
 kill
-hit (hit, hit)
-fight (fought, fought)
-shoot (shot, shot)
+hit
+fight
+shoot
 protect
 force
-beat (beat, beaten)
-hurt (hurt, hurt)
-strike (struck, struck)
+beat
+hurt
+strike
 threaten
 destroy
 fire
@@ -412,16 +412,16 @@ kick
 eliminate
 score
 aim
-compete (sport)
+compete
 confront
 resist
 target
 overcome
-give up (gave, given)
+give
 surrender
-cost (cost, cost)
+cost
 earn
-make money (made, made)
+make
 promote
 charge
 estimate
@@ -435,10 +435,10 @@ trade
 market
 withdraw
 convert
-spend (spent, spent)
-buy (bought, bought)
-sell (sold, sold)
-deal (dealt, dealt)
+spend
+buy
+sell
+deal
 produce
 save
 rule
@@ -452,10 +452,10 @@ distribute
 deposit
 afford
 live
-grow up (grew, grown)
+grow
 die
-be born
-marry (get married)
+be
+marry
 survive
 adopt
 retire
@@ -464,36 +464,36 @@ kiss
 bury
 pray
 graduate
-tire (get tired)
+tire
 adapt
 pretend
-divorce (get divorced)
+divorce
 inherit
-sleep (slept, slept)
+sleep
 dress
-wake up (woke, woken)
-eat (ate, eaten)
-drink (drank, drunk)
-feed (fed, fed)
+wake
+eat
+drink
+feed
 cook
 taste
 bake
 freeze
 play
-spend (spent, spent)
+spend
 enjoy
 visit
 travel
 rest
 dance
 celebrate
-bet (bet, bet)
+bet
 relax
 gamble
-have fun (had, had)
+have
 weigh
 balance
-flow (flew, flown)
+flow
 transform
 recover
 expose
@@ -502,13 +502,13 @@ indicate
 alter
 alternate
 double
-retain 
+retain
 fade
 form
 shape
 change
 place
-rise (rose, risen)
+rise
 reflect
 enable
 wave
@@ -521,30 +521,30 @@ violate
 witness
 arrest
 investigate
-confess 
+confess
 accuse
 charge
 suspect
 sue
 convict
-beat (up) (beat, beaten)
+beat
 murder
 kill
 attack
 free
 offend
 disturb
-steal (stole, stolen)
+steal
 rob
 rape
 punish
-do time
-interrogate 
+do
+interrogate
 swear
 reach
-catch (caught, caught)
+catch
 drop
-hang (hung, hung)
+hang
 touch
 clear
 pour
@@ -552,19 +552,19 @@ stir
 clean
 wrap
 wash
-ring (rang, rung)
+ring
 embrace
 hug
-put (put, put)
+put
 use
 show
-hold (held, held)
+hold
 open
 cut
 pull
-break (broke, broken)
+break
 cover
-draw (drew, drawn)
+draw
 point
 close
 replace
@@ -577,39 +577,39 @@ mix
 stretch
 hand
 knock
-bend (bent, bent)
+bend
 lock
-tear (tore, torn)
+tear
 pack
 attach
-dig (dug, dug)
-bind (bound, bound)
-wind (wound, wound)
+dig
+bind
+wind
 wipe
 load
-sweep (swept, swept)
+sweep
 squeeze
 rub
 tap
-spin (spun, spun)
+spin
 plant
 pick
 gather
-hide (hid, hid)
-blow (blew, blown)
+hide
+blow
 smoke
 act
-do (did, done)
+do
 demonstrate
 lean
 fix
 nod
 pose
-send (sent, sent)
-burn (burnt, burnt)
-shut (shut, shut)
-line (up)
-arrange (the books on the shelves)
+send
+burn
+shut
+line
+arrange
 install
 south
 west
@@ -664,7 +664,7 @@ landscape
 sand
 peak
 coast
-pole (geography)
+pole
 flow
 stream
 desert
@@ -673,7 +673,7 @@ relief
 snow
 darkness
 hill
-bank 
+bank
 dust
 stick
 silence
@@ -685,13 +685,13 @@ bird
 poultry
 duck
 chicken
-cock, rooster
-pigeon, dove
+cock
+pigeon
 sparrow
 crow
 animal
-domestic animal
-wild animal
+domestic
+wild
 cow
 bull
 horse
@@ -711,8 +711,8 @@ variety
 evolution
 fish
 egg
-male (biol.)
-female (biol.) 
+male
+female
 wing
 creature
 tree
@@ -727,26 +727,26 @@ season
 winter
 spring
 summer
-fall (Am.) autumn (Br.)
-January
-February
-March
-April
-May
-June
-July
-August
-September
-October
-November
-December
-Monday
-Tuesday
-Wednesday
-Thursday
-Friday
-Saturday
-Sunday
+fall
+january
+february
+march
+april
+may
+june
+july
+august
+september
+october
+november
+december
+monday
+tuesday
+wednesday
+thursday
+friday
+saturday
+sunday
 week
 day
 night
@@ -767,7 +767,7 @@ past
 beginning
 date
 era
-present (time)
+present
 afternoon
 life
 death
@@ -784,7 +784,7 @@ baby
 adult
 youth
 childhood
-teenager (сокр. teen)
+teenager
 man
 woman
 child
@@ -798,13 +798,13 @@ beauty
 personality
 gentleman
 lady
-name (first name)
-last name (Am) surname (Br)
-date of birth
+name
+last
+date
 birthday
 sex
-female (person)
-male (person)
+female
+male
 talent
 risk
 ability
@@ -851,7 +851,7 @@ gesture
 step
 sleep
 profile
-tear 
+tear
 sense
 touch
 number
@@ -860,8 +860,8 @@ value
 plus
 minus
 fraction
-odd number
-even number
+odd
+even
 problem
 answer
 point
@@ -894,19 +894,19 @@ decrease
 combination
 dimension
 chart
-table 
+table
 statistics
 pair
 unit
-amount, number
+amount
 force
 power
 strength
 speed
 size
 length
-color (colour)
-shape (form)
+color
+shape
 temperature
 capacity
 volume
@@ -944,11 +944,11 @@ iron
 mixture
 fiber
 chemical
-tissue (biol.)
+tissue
 mix
 paper
-piece (of something)
-bit (of something)
+piece
+bit
 process
 model
 impact
@@ -968,7 +968,7 @@ release
 hit
 transition
 cycle
-exposure (to something)
+exposure
 phase
 reduction
 shift
@@ -1078,7 +1078,7 @@ opinion
 vision
 intelligence
 focus
-will (power of will)
+will
 thinking
 perception
 doubt
@@ -1148,7 +1148,7 @@ family
 parents
 mother
 father
-mom (Am.), mum (Br.)
+mom
 dad
 grandmother
 grandfather
@@ -1160,7 +1160,7 @@ husband
 son
 daughter
 baby
-children, kids
+children
 teenager
 aunt
 uncle
@@ -1173,8 +1173,6 @@ relatives
 engagement
 marriage
 wedding
-fiancée, bride
-fiancé, groom (bridegroom)
 relationships
 love
 friendship
@@ -1260,14 +1258,14 @@ dancer
 studio
 theater
 viewer
-script (screenplay)
+script
 celebrity
 scene
 song
 band
 singer
 musician
-performance 
+performance
 dance
 concert
 bell
@@ -1319,7 +1317,7 @@ faith
 prayer
 priest
 heaven
-Bible
+bible
 sin
 church
 creation
@@ -1337,9 +1335,9 @@ ball
 score
 turn
 fan
-run (running)
+run
 exercise
-workout, training
+workout
 athlete
 basketball
 football
@@ -1353,7 +1351,7 @@ match
 champion
 tournament
 game
-stake, bet
+stake
 winner
 loser
 question
@@ -1363,19 +1361,19 @@ conference
 detail
 comment
 advice
-theme, topic
+theme
 appeal
 secret
 tip
 tone
 promise
-sentence 
+sentence
 explanation
 alternative
 interaction
 warning
 description
-exposure (of a secret)
+exposure
 joke
 negotiation
 involvement
@@ -1403,9 +1401,9 @@ abuse
 study
 campus
 curriculum
-laboratory (lab)
+laboratory
 graduate
-mark (US), grade (UK)
+mark
 library
 discipline
 major
@@ -1424,7 +1422,7 @@ test
 degree
 training
 knowledge
-coach 
+coach
 university
 lesson
 failure
@@ -1514,7 +1512,7 @@ founder
 council
 activist
 people
-state 
+state
 group
 country
 nation
@@ -1538,7 +1536,7 @@ supporter
 strike
 speaker
 refugee
-cabinet 
+cabinet
 spokesman
 slave
 terror
@@ -1572,12 +1570,12 @@ bomb
 bullet
 shell
 missile
-ammunition (сокр. ammo)
+ammunition
 shooting
 casualty
 weapon
 gun
-machine gun
+machine
 rifle
 armor
 attack
@@ -1594,7 +1592,7 @@ bank
 agency
 store
 fund
-stock 
+stock
 loss
 trade
 deal
@@ -1621,8 +1619,8 @@ demand
 share
 competition
 claim
-supply (econom.)
-supply (provision)
+supply
+supply
 market
 assessment
 revenue
@@ -1630,8 +1628,8 @@ loan
 investor
 profit
 cash
-advertisement (сокр. ad)
-real estate
+advertisement
+real
 branch
 fee
 division
@@ -1652,7 +1650,6 @@ foundation
 goods
 marketing
 poverty
-spendings
 evaluation
 commission
 deficit
@@ -1669,7 +1666,7 @@ shopping
 finance
 transfer
 treaty
-licence (Br.) license (Am.)
+licence
 establishment
 partnership
 buyer
@@ -1684,7 +1681,7 @@ gas
 industry
 technology
 energy
-plant 
+plant
 machine
 facility
 equipment
@@ -1724,13 +1721,13 @@ interview
 quality
 success
 task
-break 
+break
 mission
 labor
 weekend
 attempt
-day off
-lack (of something)
+day
+lack
 target
 tool
 leadership
@@ -1738,16 +1735,16 @@ procedure
 document
 contacts
 progress
-application 
+application
 instruction
 instrument
 file
 outcome
 duty
-manner (in that manner)
+manner
 requirement
 copy
-tips (money)
+tips
 achievement
 characteristic
 signal
@@ -1775,7 +1772,7 @@ delivery
 craft
 headquarters
 earnings
-load, cargo
+load
 sheet
 possibility
 advantage
@@ -1801,13 +1798,13 @@ journalist
 designer
 retirement
 consultant
-doctor 
+doctor
 teacher
 driver
 cook
 artist
 administrator
-CEO
+ceo
 deputy
 assistant
 correspondent
@@ -1818,7 +1815,7 @@ master
 boss
 personnel
 dealer
-head (of something)
+head
 reporter
 chairman
 chief
@@ -1856,9 +1853,9 @@ address
 beach
 opening
 route
-post office
+post
 settlement
-parking lot (Am.), car park (Br.)
+parking
 stop
 tower
 mayor
@@ -1931,13 +1928,13 @@ assault
 proof
 violation
 crime
-cell (prison)
+cell
 trial
 prison
 evidence
 gun
 protection
-court 
+court
 security
 officer
 cop
@@ -1962,13 +1959,13 @@ chair
 garden
 kitchen
 bedroom
-living room
+living
 bathroom
 basement
 fan
 spot
 screen
-flat (Br.) apartment (Am.)
+flat
 living
 key
 pool
@@ -1982,7 +1979,7 @@ household
 gate
 roof
 housing
-dormitory, dorm
+dormitory
 pot
 knife
 recipe
@@ -2014,7 +2011,6 @@ frame
 album
 tube
 pack
-a bunch of 
 match
 cigarette
 thing
@@ -2082,14 +2078,13 @@ belt
 watch
 label
 button
-pants, trousers
+pants
 glasses
 bag
 purse
 suit
 pocket
 skirt
-T-shirt
 zip
 gloves
 health
@@ -2107,7 +2102,7 @@ pills
 medicine
 cut
 injury
-aid (first aid)
+aid
 surgery
 nurse
 abortion
@@ -2124,7 +2119,7 @@ virus
 disability
 insurance
 system
-programme (Br.) program (Am.)
+programme
 phone
 data
 computer
@@ -2134,12 +2129,11 @@ network
 radio
 communication
 connection
-Internet
+internet
 device
 application
 hardware
 software
-email
 settings
 user
 resolution
@@ -2148,7 +2142,7 @@ link
 display
 keyboard
 laptop
-PC (personal computer)
+pc
 tablet
 mail
 net
@@ -2208,10 +2202,10 @@ interested
 responsible
 afraid
 native
-aware 
+aware
 active
 chief
-cool (slang)
+cool
 direct
 famous
 familiar
@@ -2406,7 +2400,7 @@ tight
 raw
 dirty
 still
-pure (water)
+pure
 steady
 stable
 vulnerable
@@ -2423,7 +2417,7 @@ wooden
 broken
 visual
 economic
-free 
+free
 financial
 commercial
 rich
@@ -2436,8 +2430,8 @@ remaining
 double
 numerous
 increasing
-total (total number)
-single 
+total
+single
 main
 major
 significant
@@ -2511,7 +2505,7 @@ comfortable
 convenient
 handy
 complicated
-severe (pain)
+severe
 apparent
 elementary
 regular
@@ -2582,7 +2576,7 @@ clinical
 developing
 technical
 musical
-colour (Br.) color (Am.)
+colour
 black
 white
 dark
@@ -2598,7 +2592,7 @@ pink
 silver
 gold
 brown
-grey (Br.) gray (Am.)
+grey
 now
 then
 never
@@ -2608,14 +2602,14 @@ today
 long
 ever
 later
-(one year) ago
+one
 early
 soon
 recently
 before
-PM
+pm
 tonight
-AM
+am
 late
 forever
 rarely
@@ -2705,7 +2699,7 @@ close
 forth
 anywhere
 deeply
-ahead (go ahed)
+ahead
 somewhere
 everywhere
 back
@@ -2721,19 +2715,18 @@ aside
 closely
 nowhere
 elsewhere
-a little
+little
 only
 alone
-at least
+at
 together
-a lot
 bit
 twice
 fully
 increasingly
 anymore
 also
-else (something else)
+else
 more
 much
 less
@@ -2758,14 +2751,14 @@ best
 really
 most
 still
-yet (not yet)
+yet
 almost
 easy
 quite
 maybe
 actually
 probably
-of course
+of
 perhaps
 possibly
 unfortunately
@@ -2788,88 +2781,88 @@ though
 thus
 so
 otherwise
-around (around the world)
-at (at the gate)
-by (house by the lake)
-in (in the room)
-above (above the table)
-among (the wolf among us)
-behind (behind the building)
-beside (beside the house)
-between (between two mountains)
-beyond (beyond the river)
-in front of (in front of TV)
-inside (inside the box)
-on (The cat is on the roof)
-out (to walk out)
-outside (Is there anybody outside?)
-under (underground is under ground)
-within (within my heart)
-below (below sea level)
-around (around nine o'clock)
-at (at the midday)
-before (before breakfast)
-by (by two o'clock)
-in (I'll be back in ten minutes)
-for (I've been waiting for you for an hour)
-since (I’ve been studying English since I was 10)
-during (during the war)
-within (He's got to be here within an hour)
-on (on Monday)
-after (Don't call me after 9PM)
-till (from dusk till dawn)
-down (down the street)
-up (up the street)
-from (I am from Russia)
-across (go across the river)
-along (along the wall)
-into (into the cave)
-to (to the next stop)
-toward (toward the city)
-through (through the forest)
-over (over the fence)
-off (off here)
-out of (out of the coverage area)
-via (go via Moscow)
-past (go past the church)
-with (coffe with sugar)
-about (tell me about yourself)
-against (against war)
-without (without you)
-including (two cars including one broken)
-according to (according to the rules)
-because of (because of the car accident)
-despite (despite the bad weather)
-instead of (new part instead of broken one)
-in spite of (in spite of the rain)
-regardless of (regardless of what you say)
-thanks to (thanks to the doctor, I'm feeling fine)
-by means of (by means of tools)
-on behalf of (on behalf of my boss)
-for (this gift is for you)
-compare to (This is nothing compare to the real troubles)
-rather… than (they'd rather buy fish than meat)
-rather than (they'd buy fish rather than meat)
-and (Good and Evil)
-but (Small but proud)
-however (It is true however it's not always true)
-as well as (He owns the store as well as the warehouse)
-both… and (Both you and me)
-either… or (We need either you or him)
-neither… nor (We don't need neither you nor him)
-when (Call me when you're ready)
-before (He was born before the war)
-after (I'll come back after the rain)
-while (Don't talk while you're eating)
-since (She has been sad since the accident)
-until (I slept until 9 o'clock)
-where (I have no idea where we are going)
-how (Tell me how you do that)
-if (We'll rest if you stop whining)
-because (That's because you read too much)
-so (It was cold, so I came back)
-so (that) (Study hard so that you don't end up like me)
-though, although (The soil is hard athough it's been raining lately)
-once (I'll have a look at your essay once I finish reading this one)
-as soon as (Call me as soon as you get on the plane)
-as long as (As long as you are with me, you have nothing to worry about)
+around
+at
+by
+in
+above
+among
+behind
+beside
+between
+beyond
+in
+inside
+on
+out
+outside
+under
+within
+below
+around
+at
+before
+by
+in
+for
+since
+during
+within
+on
+after
+till
+down
+up
+from
+across
+along
+into
+to
+toward
+through
+over
+off
+out
+via
+past
+with
+about
+against
+without
+including
+according
+because
+despite
+instead
+in
+regardless
+thanks
+by
+on
+for
+compare
+rather
+rather
+and
+but
+however
+as
+both
+either
+neither
+when
+before
+after
+while
+since
+until
+where
+how
+if
+because
+so
+so
+though
+once
+as
+as
