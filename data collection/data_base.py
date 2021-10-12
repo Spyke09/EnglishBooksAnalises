@@ -72,7 +72,7 @@ def delete_repeates():
 def translate(st: str, base="dict_without_repeates.db"):
     conn = sq.connect(base)
     cur = conn.cursor()
-    cur.execute(f"SELECT * FROM Dictionary WHERE en_word LIKE '{st}';")
+    cur.execute(f"SELECT * FROM Dictionary WHERE en_word = '{st}';")
 
     temp = cur.fetchall()
     return temp
