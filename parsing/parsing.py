@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def search_url(name, sort="date"):
-    return "https://www.rulit.me/books/en/1/" + sort + "?search=" + name
+    return "https://www.rulit.me/books/en/1/" + sort + "?format=txt&search=" + name
 
 
 def page_generator(url, max_val):
@@ -50,8 +50,42 @@ def get_last_page(url):
         return 1
 
 
-main_url = "https://www.rulit.me/books/en/1/popular"
+def get_url_books(url):
+    r = requests.get(url)
+    r = bs(r.text, 'html.parser')
+    temp = (r.find_all(class_="entry-header text-left text-uppercase"))
+    list1 = []
+    for i in temp:
+        list1.extend(i.find_all("h4"))
+    list1 = list(filter(lambda x: len(x.attrs) == 0, list1))
+    list1 = [i.find("a")['href'] for i in list1]
+    return list1
 
-temp1 = search_url("selgkjewgkljew")
+def dowload_from_url(url):
+    if url:
+        r = requests.get(url)
+        r = bs(r.text, 'html.parser')
+        temp = r.find("noindex")
+        print(temp)
+        temp = temp.find("a")['href']
+        r = requests.get(temp)
+        r = bs(r.text, 'html.parser')
+        temp = r.find_all("div", class_='download')
+        temp = [i.find("a")['href'] for i in temp]
+        temp = list(filter(lambda x: x[-3:] == 'txt', temp))[0]
+        name = (url.split('books/')[1]).split('-download')[0]
+        f = open(fr"books\{name}.zip", "wb")
+        ufr = requests.get(temp)
+        f.write(ufr.content)
+        f.close()
 
-print(get_last_page(temp1))
+
+
+
+temp1 = search_url("1984")
+print(temp1)
+temp2 = get_url_books(temp1)
+print(temp2[0])
+for i in temp2:
+    dowload_from_url(temp2[1])
+
