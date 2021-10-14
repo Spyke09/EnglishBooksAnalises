@@ -62,6 +62,7 @@ def get_url_books(url):
     list1 = [i.find("a")['href'] for i in list1]
     return list1
 
+
 def dowload_from_url(url):
     if url:
         r = requests.get(url)
@@ -81,12 +82,9 @@ def dowload_from_url(url):
         f.close()
 
 
-
-
 temp1 = search_url("1984")
 print(temp1)
 temp2 = get_url_books(temp1)
 print(temp2[0])
 for i in temp2:
     dowload_from_url(temp2[1])
-

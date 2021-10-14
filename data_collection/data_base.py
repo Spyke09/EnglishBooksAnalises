@@ -69,7 +69,7 @@ def delete_repeates():
     conn.close()
 
 
-def translate(st: str, base="dict_without_repeates.db"):
+def translate(st: str, base=r"data_collection\dict_without_repeates.db"):
     conn = sq.connect(base)
     cur = conn.cursor()
     cur.execute(f"SELECT * FROM Dictionary WHERE en_word = '{st}';")
@@ -85,6 +85,13 @@ def translate(st: str, base="dict_without_repeates.db"):
     return res
 
 
+def get_list(base):
+    conn = sq.connect(base)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Dictionary")
+    return cur.fetchall()
+
+
 def translate_gen(st, base="dict_without_repeates.db"):
     conn = sq.connect(base)
     cur = conn.cursor()
@@ -97,4 +104,3 @@ def translate_gen(st, base="dict_without_repeates.db"):
             yield i, None
     cur.close()
     conn.close()
-

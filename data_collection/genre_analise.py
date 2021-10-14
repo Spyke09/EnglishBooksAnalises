@@ -1,12 +1,13 @@
-import data_base
+from data_collection import data_base
 import nltk
+from nltk.corpus import stopwords
 
 genres = ['most common', 'business', 'science', "children's literature", 'fiction', 'art and culture', 'computers',
           'religion', 'history', 'tutorials', ]
 
 
 def words_gen(st: str):
-    f = open(fr'set of words\{st}', 'r')
+    f = open(fr'data_collection\set of words\{st}', 'r')
     while (1):
         a = f.readline()
         a = a.replace("\n", '')
@@ -17,15 +18,17 @@ def words_gen(st: str):
 
 
 def easy_words():
-    for i in data_base.translate_gen(words_gen()):
+    for i in data_base.translate_gen(words_gen("most common.txt")):
         if i[1] is None:
             print(i)
 
 
-def read_books():
-    f = open(f'set of words\Fifty_Inventions_That_Shaped_th_-_Tim_Harford_1.txt')
+def get_dict_dif(st):
+    f = open(fr'data_collection\set of words\{st}')
     tokenizer = nltk.RegexpTokenizer(r'\w+')
     s = dict()
+    length = 0
+    stopWords = set(stopwords.words('english'))
     while 1:
         try:
             a = f.readline()
@@ -33,27 +36,29 @@ def read_books():
             continue
         if not a:
             break
-        a = a.lower()
-        for i in tokenizer.tokenize(a):
-            if not i in s:
-                s[i] = 1.0
-            else:
-                s[i] += 1.0
+        a = tokenizer.tokenize(a.lower())
+        for i in a:
+            if not i in stopWords:
+                length += 1
+                if not i in s:
+                    s[i] = 1.0
+                else:
+                    s[i] += 1.0
 
     temp = []
     for i in s.keys():
         if not data_base.translate(i):
+            length -= s[i]
             temp.append(i)
+
     for i in temp:
         s.pop(i)
-    l = len(s)
     s = sort_dict(s)
     # g = open(r'set of words\res.txt', 'w')
     for i in s.keys():
-        s[i] /= l
-        print(i, s[i])
-
+        s[i] /= length
     f.close()
+    return s
 
 
 def sort_dict(d):
@@ -64,4 +69,14 @@ def sort_dict(d):
     return res
 
 
-read_books()
+def difficult1(input_set: dict):
+    for i in words_gen("most common.txt"):
+        if i in input_set:
+            input_set.pop(i)
+    res = 0
+    for i in input_set.values():
+        res += i
+    return res * 100
+
+
+
