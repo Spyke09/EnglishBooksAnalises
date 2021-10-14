@@ -1,6 +1,7 @@
 from data_collection import data_base
 import nltk
 from nltk.corpus import stopwords
+from nltk.stem.snowball import SnowballStemmer
 
 genres = ['most common', 'business', 'science', "children's literature", 'fiction', 'art and culture', 'computers',
           'religion', 'history', 'tutorials', ]
@@ -26,6 +27,7 @@ def easy_words():
 def get_dict_dif(st):
     f = open(fr'data_collection\set of words\{st}')
     tokenizer = nltk.RegexpTokenizer(r'\w+')
+    snow_stemmer = SnowballStemmer(language='english')
     s = dict()
     length = 0
     stopWords = set(stopwords.words('english'))
@@ -37,7 +39,8 @@ def get_dict_dif(st):
         if not a:
             break
         a = tokenizer.tokenize(a.lower())
-        for i in a:
+        for j in a:
+            i = snow_stemmer.stem(j)
             if not i in stopWords:
                 length += 1
                 if not i in s:
@@ -79,4 +82,11 @@ def difficult1(input_set: dict):
     return res * 100
 
 
+def difficult2(input_set: dict):
+    l = len(input_set)
+    for i in words_gen("most common.txt"):
+        if i in input_set:
+            input_set.pop(i)
+
+    return (l - len(input_set))/l
 

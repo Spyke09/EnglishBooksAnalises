@@ -4,6 +4,10 @@ from data_collection.data_base import *
 print("Введите название книги из каталога")
 name = input()
 dict_of_words = get_dict_dif(name)
-# Fifty_Inventions_That_Shaped_th_-_Tim_Harford_1.txt
 difficult = difficult1(dict_of_words)
-print("Сложность книги в процентах: " + str(round(difficult, 1)) + "%")
+
+# Rouling_Harry_Potter_1_Harry_Potter_and_the_Sorcerers_Stone_RuLit_Net.txt   23
+# Doyle Arthur. A Study in Scarlet - royallib.ru.txt   28
+# Li_To-Kill-a-Mockingbird_2_Go-Set-a-Watchman_RuLit_Me.txt 25
+
+print("Сложность книги в процентах: " + str(difficult) + "%")
