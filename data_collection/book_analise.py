@@ -73,20 +73,27 @@ def sort_dict(d):
 
 
 def difficult1(input_set: dict):
+    temp = input_set.copy()
     for i in words_gen("most common.txt"):
-        if i in input_set:
-            input_set.pop(i)
-    res = 0
-    for i in input_set.values():
-        res += i
-    return res * 100
+        if i in temp:
+            temp.pop(i)
+    return sum(temp.values()) * 100
 
 
 def difficult2(input_set: dict):
     l = len(input_set)
+    temp = input_set.copy()
     for i in words_gen("most common.txt"):
-        if i in input_set:
-            input_set.pop(i)
+        if i in temp:
+            temp.pop(i)
+    return (l - len(temp)) / l
 
-    return (l - len(input_set))/l
+
+def get_words(input_set: dict):
+    temp = input_set.copy()
+    l = len(temp)
+    for i in words_gen("most common.txt"):
+        if i in temp:
+            temp.pop(i)
+    return temp.keys()
 
