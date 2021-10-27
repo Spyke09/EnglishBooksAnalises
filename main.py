@@ -10,3 +10,4 @@ dict_of_words = get_dict_dif(name)
 # Doyle Arthur. A Study in Scarlet - royallib.ru.txt   28
 # Li_To-Kill-a-Mockingbird_2_Go-Set-a-Watchman_RuLit_Me.txt 25
 
+print('sd')
