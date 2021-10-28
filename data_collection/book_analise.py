@@ -57,7 +57,7 @@ def get_dict_dif(st):
     for i in temp:
         s.pop(i)
     s = sort_dict(s)
-    # g = open(r'set of words\res.txt', 'w')
+    # g = open(r'set_of_words\res.txt', 'w')
     for i in s.keys():
         s[i] /= length
     f.close()
