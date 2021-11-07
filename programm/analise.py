@@ -33,7 +33,6 @@ def simple_file_gen(st: str):
         a = f.readline()
         if not a:
             break
-
         yield a.replace('\n', '')
     f.close()
 

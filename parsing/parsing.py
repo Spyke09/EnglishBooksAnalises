@@ -64,7 +64,6 @@ def get_url_books(url):
 
 
 def dowload_from_url(url):
-    if url:
         r = requests.get(url)
         r = bs(r.text, 'html.parser')
         temp = r.find("noindex")
