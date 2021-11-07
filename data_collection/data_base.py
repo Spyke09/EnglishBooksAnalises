@@ -1,8 +1,9 @@
 import sqlite3 as sq
 import os
-import time
 
+# здесь функционал для создания базы данных из txt-словаря
 
+# создаю базу данных с словарем англ-рус
 def create_bd():
     if os.path.exists("dict.db"):
         os.remove("dict.db")
@@ -31,7 +32,7 @@ def create_bd():
     cur.close()
     conn.close()
 
-
+# создаю другую базу данных, в которой нет повторений относительно англ. слов
 def delete_repeates():
     if os.path.exists("dict_without_repeates.db"):
         os.remove("dict2.db")
@@ -68,7 +69,7 @@ def delete_repeates():
     cur.close()
     conn.close()
 
-
+# пробная функция для перевода слов
 def translate(st: str, base=r"data_collection\dict_without_repeates.db"):
     conn = sq.connect(base)
     cur = conn.cursor()
@@ -84,14 +85,7 @@ def translate(st: str, base=r"data_collection\dict_without_repeates.db"):
     conn.close()
     return res
 
-
-def get_list(base):
-    conn = sq.connect(base)
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM Dictionary")
-    return cur.fetchall()
-
-
+#функция-генератор для перевода коллекции слов
 def translate_gen(st, base="dict_without_repeates.db"):
     conn = sq.connect(base)
     cur = conn.cursor()

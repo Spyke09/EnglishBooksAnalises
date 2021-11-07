@@ -1,32 +1,25 @@
-
 from data_collection import data_base
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
 
 
-genres = ['most common', 'business', 'science', "children's literature", 'fiction', 'art and culture', 'computers',
-          'religion', 'history', 'tutorials', ]
+# рабочий файл с набросками того, что должно быть по итогу
 
-
+# функция-генератор для чтения файла
 def words_gen(st: str):
     f = open(fr'data_collection\set of words\{st}', 'r')
     while (1):
         a = f.readline()
-        a = a.replace("\n", '')
         if not a:
             break
+        a = a.replace("\n", '')
         yield a
     f.close()
 
 
-def easy_words():
-    for i in data_base.translate_gen(words_gen("most common.txt")):
-        if i[1] is None:
-            print(i)
-
-
-def get_dict_dif(st):
+# прототип функции words_distribution из analise.py
+def get_dict_dict(st):
     f = open(fr'data_collection\set of words\{st}')
     tokenizer = nltk.RegexpTokenizer(r'\w+')
     snow_stemmer = SnowballStemmer(language='english')
@@ -59,13 +52,14 @@ def get_dict_dif(st):
     for i in temp:
         s.pop(i)
     s = sort_dict(s)
-    # g = open(r'set_of_words\res.txt', 'w')
+
     for i in s.keys():
         s[i] /= length
     f.close()
     return s
 
 
+# отсортировывает словарь по значению
 def sort_dict(d):
     res = dict()
     so = sorted(d, key=d.get)
@@ -74,6 +68,7 @@ def sort_dict(d):
     return res
 
 
+# прототипы функций сложности
 def difficult1(input_set: dict):
     temp = input_set.copy()
     for i in words_gen("most common.txt"):
@@ -89,14 +84,3 @@ def difficult2(input_set: dict):
         if i in temp:
             temp.pop(i)
     return (l - len(temp)) / l
-
-
-def get_words(input_set: dict):
-    temp = input_set.copy()
-    l = len(temp)
-    for i in words_gen("most common.txt"):
-        if i in temp:
-            temp.pop(i)
-    return temp.keys()
-
-

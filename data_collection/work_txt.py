@@ -1,6 +1,6 @@
-import string
+# Здесь я собирал данные для словаря в txt варианте
 
-
+# запись финальной версии словаря
 def rewrite(str1, str2):
     f = open(str1, "r")
     g = open(str2, "w")
@@ -15,11 +15,11 @@ def rewrite(str1, str2):
     f.close()
     g.close()
 
-
+# дозапись в финальный словарь из ещё одного словаря
 def more_rewrite(str1, str2):
     f = open(str1, "r")
     g = open(str2, "a")
-    words = count_words(str2)
+    words = set(count_words(str2).keys())
     while True:
         s0 = f.readline()
         s1 = (f.readline().split('\t'))[0]
@@ -32,7 +32,7 @@ def more_rewrite(str1, str2):
     f.close()
     g.close()
 
-
+# функция дающаа наибольшую длину строки в txt файле
 def max_len(str1):
     f = open(str1, 'r')
     m = 0
@@ -43,7 +43,7 @@ def max_len(str1):
             break
     print(m)
 
-
+# функция для анализа распределения длины строк в словаре
 def len_distribution(str1, maxx):
     f = open(str1, 'r')
     m = {i: 0 for i in range(maxx + 1)}
@@ -57,7 +57,8 @@ def len_distribution(str1, maxx):
     f.close()
     return m
 
-
+# функция выдающаа все встречаемые символы в файле
+# нужна чтобы убрать всякий мусор из файла
 def count_symbols(text):
     f = open(text, 'r')
     a = dict()
@@ -73,7 +74,7 @@ def count_symbols(text):
     f.close()
     return a
 
-
+# функция, дающаа dict с встречаюмостью каждого слова
 def count_words(text):
     f = open(text, 'r')
     a = dict()
@@ -87,12 +88,12 @@ def count_words(text):
         else:
             a[temp] = 1
     f.close()
-    return set(a.keys())
+    return a
 
 
-rewrite(r"dictionaries\best_dict1.txt", "final.txt")
-more_rewrite(r"dictionaries\enrus1.txt", 'final.txt')
+# rewrite(r"dictionaries\best_dict1.txt", "final.txt")
+# more_rewrite(r"dictionaries\enrus1.txt", 'final.txt')
 # for i in count_symbols(r"dictionaries\best_dict1.txt").items():
 #   print(i)
 
-print(len(count_words('final.txt')))
+# print(len(count_words('final.txt')))

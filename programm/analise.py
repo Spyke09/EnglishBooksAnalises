@@ -54,7 +54,7 @@ def difficult_1(st: str):
     return round(count_simple / len(words) * 100)
 
 
-# функция выдающее распределение жанров
+# функция выдающая словарь с распределением слов
 def words_distribution(st, _sorted=True):
     dry = dict()
     stopWords = set(stopwords.words('english'))
@@ -65,6 +65,12 @@ def words_distribution(st, _sorted=True):
             else:
                 dry[i] = 1
 
+    delete_s(dry)
+    return sort_dict(dry) if _sorted else dry
+
+
+# убирает окончания в англ. словах
+def delete_s(dry: dict):
     tra = tr.Translator()
 
     for i in dry.keys():
@@ -79,14 +85,14 @@ def words_distribution(st, _sorted=True):
                 dry[i[:-3] + 'y'] += dry[i]
                 dry[i] = -1
 
-    return sort_dict(dry) if _sorted else dry
 
-
+# печатает words_distribution
 def print_word_d(st, _sorted=True):
     for i, j in words_distribution(st, _sorted).items():
         print(f"{i}: {j}")
 
 
+# выдает часть словаря
 def get_piece_dict(d: dict, t=4):
     dic = dict()
     maxv = max(d.values())
@@ -95,7 +101,7 @@ def get_piece_dict(d: dict, t=4):
             dic[i] = j
     return dic
 
-
+# функция, выдающаяя жанровое распределение книги
 def genre_distribution(st: str):
     d = words_distribution(st)
     with open('data_collection/genres.json', 'r') as js:
