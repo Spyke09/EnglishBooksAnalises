@@ -64,6 +64,7 @@ def genre_distribution(st):
                 dry[i] = 1
     return dry
 
+
 # функция сортирующая словарь по второму элементу
 def sort_dict(d):
     res = dict()
