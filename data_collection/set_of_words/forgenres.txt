@@ -1,2 +1,0 @@
-business: company, work, time, performance, leadership, people, business, management, employees, process
-science: time, science, would, method, professor, human, years, history, theory, new 
