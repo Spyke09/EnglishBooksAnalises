@@ -1,3 +1,5 @@
+import json
+
 import nltk
 from programm import translator as tr
 from nltk.corpus import stopwords
@@ -5,7 +7,7 @@ from nltk.stem.snowball import SnowballStemmer
 
 
 # функция-генератор получает на входе путь к файлу txt и выдает слова
-def word_file_gen(st):
+def word_file_gen(st: str):
     tokenizer = nltk.RegexpTokenizer(r'\w+')
     stemmer = SnowballStemmer(language='english')
     names = set(simple_file_gen(r'data_collection\set_of_words\names.txt'))
@@ -25,7 +27,7 @@ def word_file_gen(st):
 
 
 # фукция-генератор для построчного чтения
-def simple_file_gen(st):
+def simple_file_gen(st: str):
     f = open(st, 'r')
     while 1:
         a = f.readline()
@@ -37,7 +39,7 @@ def simple_file_gen(st):
 
 
 # анализ текста на сложность - 1й вариант
-def difficult_1(st):
+def difficult_1(st: str):
     tl = tr.Translator()
     stopWords = set(stopwords.words('english'))
     words = set()
@@ -46,14 +48,14 @@ def difficult_1(st):
             words.add(i)
 
     count_simple = 0
-    for i in simple_file_gen('data_collection\set_of_words\most common.txt'):
+    for i in simple_file_gen('data_collection/set_of_words/most common.txt'):
         if i in words and not i in stopWords:
             count_simple += 1
     return round(count_simple / len(words) * 100)
 
 
 # функция выдающее распределение жанров
-def genre_distribution(st):
+def words_distribution(st, _sorted=True):
     dry = dict()
     stopWords = set(stopwords.words('english'))
     for i in word_file_gen(st):
@@ -62,7 +64,53 @@ def genre_distribution(st):
                 dry[i] += 1
             else:
                 dry[i] = 1
-    return dry
+
+    tra = tr.Translator()
+
+    for i in dry.keys():
+        if len(i) > 3 and i[-1] == 's':
+            if i[:-1] in dry and tra.translate(i[:-1]):
+                dry[i[:-1]] += dry[i]
+                dry[i] = -1
+            elif i[:-2] in dry and tra.translate(i[:-2]):
+                dry[i[:-2]] += dry[i]
+                dry[i] = -1
+            elif i[:-3] + 'y' in dry and tra.translate(i[:-3] + 'y'):
+                dry[i[:-3] + 'y'] += dry[i]
+                dry[i] = -1
+
+    return sort_dict(dry) if _sorted else dry
+
+
+def print_word_d(st, _sorted=True):
+    for i, j in words_distribution(st, _sorted).items():
+        print(f"{i}: {j}")
+
+
+def get_piece_dict(d: dict, t=4):
+    dic = dict()
+    maxv = max(d.values())
+    for i, j in d.items():
+        if j >= maxv / t:
+            dic[i] = j
+    return dic
+
+
+def genre_distribution(st: str):
+    d = words_distribution(st)
+    with open('data_collection/genres.json', 'r') as js:
+        genre = json.load(js)
+    dic = get_piece_dict(d)
+
+    result = dict()
+    for i, j in genre.items():
+        count = 0
+        for t in j:
+            if t in dic:
+                count += 1
+        result[i] = count
+
+    return result
 
 
 # функция сортирующая словарь по второму элементу

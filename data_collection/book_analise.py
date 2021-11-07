@@ -1,7 +1,9 @@
+
 from data_collection import data_base
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
+
 
 genres = ['most common', 'business', 'science', "children's literature", 'fiction', 'art and culture', 'computers',
           'religion', 'history', 'tutorials', ]
@@ -96,4 +98,5 @@ def get_words(input_set: dict):
         if i in temp:
             temp.pop(i)
     return temp.keys()
+
 
