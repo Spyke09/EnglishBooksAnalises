@@ -4,13 +4,16 @@ import nltk
 from programm import translator as tr
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
+from src.utils import get_project_root
+
 
 
 # функция-генератор получает на входе путь к файлу txt и выдает слова
 def word_file_gen(st: str):
     tokenizer = nltk.RegexpTokenizer(r'\w+')
     stemmer = SnowballStemmer(language='english')
-    names = set(simple_file_gen(r'data_collection\set_of_words\names.txt'))
+    filename = get_project_root().joinpath(r'data_collection\set_of_words\names.txt')
+    names = set(simple_file_gen(filename))
     f = open(st, 'r')
     while 1:
         try:
@@ -47,7 +50,8 @@ def difficult_1(st: str):
             words.add(i)
 
     count_simple = 0
-    for i in simple_file_gen('data_collection/set_of_words/most common.txt'):
+    filename = get_project_root().joinpath('data_collection/set_of_words/most common.txt')
+    for i in simple_file_gen(filename):
         if i in words and not i in stopWords:
             count_simple += 1
     return round(count_simple / len(words) * 100)
@@ -100,10 +104,12 @@ def get_piece_dict(d: dict, t=4):
             dic[i] = j
     return dic
 
+
 # функция, выдающаяя жанровое распределение книги
 def genre_distribution(st: str):
     d = words_distribution(st)
-    with open('data_collection/genres.json', 'r') as js:
+    filename = get_project_root().joinpath('data_collection/genres.json')
+    with open(filename, 'r') as js:
         genre = json.load(js)
     dic = get_piece_dict(d)
 
