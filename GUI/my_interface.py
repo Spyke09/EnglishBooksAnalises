@@ -1,28 +1,37 @@
-import os
-
+import sys
+from GUI import diagrams
 from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
-import sys
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from programm import analise
 
 
-class Mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class PieCanvas(FigureCanvasQTAgg):
+    def __init__(self, fig):
+        super(PieCanvas, self).__init__(fig)
+
+
+
+class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
-        super(Mywindow, self).__init__()
+        super(MyWindow, self).__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(self.browse_folder)
 
     def browse_folder(self):
-        self.listWidget.clear()
+        # self.listWidget.clear()
         directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
         d = analise.genre_distribution(directory)
-        for i, j in d.items():
-            self.listWidget.addItem(f'{i}: {j}')
+        canvas_p = PieCanvas(diagrams.circle_plot(d))
+        self.verticalLayout_1.addWidget(canvas_p)
+
+
+
 
 
 def run():
     app = QtWidgets.QApplication([])
-    application = Mywindow()
+    application = MyWindow()
     application.show()
 
     sys.exit(app.exec())
