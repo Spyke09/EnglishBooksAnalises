@@ -3,16 +3,12 @@ import json
 import nltk
 from programm import translator as tr
 from nltk.corpus import stopwords
-from nltk.stem.snowball import SnowballStemmer
 from src.utils import get_root
-
 
 
 # функция-генератор получает на входе путь к файлу txt и выдает слова
 def word_file_gen(st: str):
     tokenizer = nltk.RegexpTokenizer(r'\w+')
-    stemmer = SnowballStemmer(language='english')
-    # names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
     f = open(st, 'r')
     while 1:
         try:
@@ -23,7 +19,6 @@ def word_file_gen(st: str):
             break
         a = tokenizer.tokenize(a.lower())
         for i in a:
-            # if i not in names:
             yield i
     f.close()
 
@@ -42,7 +37,7 @@ def simple_file_gen(st: str):
 # анализ текста на сложность - 1й вариант
 def difficult_1(st: str):
     tl = tr.Translator()
-    stopWords = set(stopwords.words('english'))
+    stop_words = set(stopwords.words('english'))
     words = set()
     for i in word_file_gen(st):
         if tl.translate(i) and not (i in words):
@@ -51,7 +46,7 @@ def difficult_1(st: str):
     count_simple = 0
     filename = get_root('data_collection/set_of_words/most common.txt')
     for i in simple_file_gen(filename):
-        if i in words and not i in stopWords:
+        if i in words and not i in stop_words:
             count_simple += 1
     return round(count_simple / len(words) * 100)
 
@@ -121,8 +116,7 @@ def genre_distribution(st: str):
         genre = json.load(js)
         genre['fiction'] = names
 
-
-    dic = get_piece_dict(d,8)
+    dic = get_piece_dict(d, 8)
 
     result = dict()
     for i, j in genre.items():
