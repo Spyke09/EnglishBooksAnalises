@@ -1,7 +1,7 @@
 import json
 
 import nltk
-from programm import translator as tr
+from program import translator as tr
 from nltk.corpus import stopwords
 from src.utils import get_root
 
@@ -51,7 +51,7 @@ def difficult_1(st: str):
     return round(count_simple / len(words) * 100)
 
 
-# функция выдающая словарь с распределением слов
+# функция выдающая словарь с распределением слов и сохраняющая словарь в json файл
 def words_distribution(st, _sorted=True, _names=True):
     dry = dict()
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
@@ -72,13 +72,15 @@ def words_distribution(st, _sorted=True, _names=True):
                     dry[i] = 1
 
     delete_s(dry)
-    return sort_dict(dry) if _sorted else dry
+    sort_dry = sort_dict(dry)
+
+    with open(get_root('program/dict_words.json'), 'w') as js:
+        json.dump(sort_dry if _sorted else dry, js)
 
 
 # убирает окончания в англ. словах
 def delete_s(dry: dict):
     tra = tr.Translator()
-
     for i in dry.keys():
         if len(i) > 3 and i[-1] == 's':
             if i[:-1] in dry and tra.translate(i[:-1]):
@@ -93,9 +95,11 @@ def delete_s(dry: dict):
 
 
 # печатает words_distribution
-def print_word_d(st, _sorted=True):
-    for i, j in words_distribution(st, _sorted).items():
-        print(f"{i}: {j}")
+def print_word_d():
+    with open(get_root('program/dict_words.json'), 'r') as js:
+        d = json.load(js)
+        for i, j in d.items():
+            print(f"{i}: {j}")
 
 
 # выдает часть словаря
@@ -110,7 +114,8 @@ def get_piece_dict(d: dict, t=4):
 
 # функция, выдающаяя жанровое распределение книги
 def genre_distribution(st: str):
-    d = words_distribution(st)
+    with open(get_root('program/dict_words.json'), 'r') as js:
+        d = json.load(js)
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
     with open(get_root('data_collection/genres.json'), 'r') as js:
         genre = json.load(js)

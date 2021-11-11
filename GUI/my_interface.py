@@ -3,11 +3,11 @@ from GUI import diagrams
 from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-from programm import analise
+from program import analise
 
 
 class PieCanvas(FigureCanvasQTAgg):
-    def __init__(self, fig):
+    def __init__(self, fig=None):
         super(PieCanvas, self).__init__(fig)
 
 
@@ -17,15 +17,27 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MyWindow, self).__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(self.browse_folder)
+        self.canvas_p = None
+        self.directory = ''
 
     def browse_folder(self):
-        # self.listWidget.clear()
-        directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
-        d = analise.genre_distribution(directory)
-        canvas_p = PieCanvas(diagrams.circle_plot(d))
-        self.verticalLayout_1.addWidget(canvas_p)
+        self.directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
+        if self.directory:
+            analise.words_distribution(self.directory)
+            self.__draw_pie()
+            self.__write_name()
 
+    def __draw_pie(self):
+        d = analise.genre_distribution(self.directory)
+        self.verticalLayout_1.removeWidget(self.canvas_p)
+        self.canvas_p = PieCanvas(diagrams.circle_plot(d))
+        self.verticalLayout_1.addWidget(self.canvas_p)
 
+    def __write_name(self):
+        new_name = self.directory.replace('-', ' ').replace('_', ' ')
+        new_name = new_name.split('/')[-1]
+        new_name = new_name.split('.txt')[0]
+        self.label.setText(new_name)
 
 
 

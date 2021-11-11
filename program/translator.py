@@ -1,6 +1,7 @@
 import sqlite3 as sq
 from src.utils import get_root
 
+
 # класс отвечающий за перевод слов
 class Translator:
     def __init__(self):
@@ -15,4 +16,3 @@ class Translator:
             return temp
         else:
             return None
-
