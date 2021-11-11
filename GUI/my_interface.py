@@ -1,7 +1,7 @@
 import os
 
 from PyQt5 import QtWidgets
-from tt1 import Ui_MainWindow
+from GUI.first_qt import Ui_MainWindow
 import sys
 from programm import analise
 
@@ -16,15 +16,15 @@ class Mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.listWidget.clear()
         directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
         d = analise.genre_distribution(directory)
-        for i,j in d.items():
-            self.listWidget.addItem(f'{i}: {j}, aboba')
+        for i, j in d.items():
+            self.listWidget.addItem(f'{i}: {j}')
 
 
+def run():
+    app = QtWidgets.QApplication([])
+    application = Mywindow()
+    application.show()
 
-app = QtWidgets.QApplication([])
-application = Mywindow()
-application.show()
+    sys.exit(app.exec())
 
-sys.exit(app.exec())
-
-# pyuic5 GUI/untitled.ui -o GUI/tt1.py
+# pyuic5 GUI/untitled.ui -o GUI/first_qt.py

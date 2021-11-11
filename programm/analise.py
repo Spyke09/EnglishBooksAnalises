@@ -4,7 +4,7 @@ import nltk
 from programm import translator as tr
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
-from src.utils import get_project_root
+from src.utils import get_root
 
 
 
@@ -12,8 +12,7 @@ from src.utils import get_project_root
 def word_file_gen(st: str):
     tokenizer = nltk.RegexpTokenizer(r'\w+')
     stemmer = SnowballStemmer(language='english')
-    filename = get_project_root().joinpath(r'data_collection\set_of_words\names.txt')
-    names = set(simple_file_gen(filename))
+    # names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
     f = open(st, 'r')
     while 1:
         try:
@@ -24,8 +23,8 @@ def word_file_gen(st: str):
             break
         a = tokenizer.tokenize(a.lower())
         for i in a:
-            if i not in names:
-                yield i
+            # if i not in names:
+            yield i
     f.close()
 
 
@@ -50,7 +49,7 @@ def difficult_1(st: str):
             words.add(i)
 
     count_simple = 0
-    filename = get_project_root().joinpath('data_collection/set_of_words/most common.txt')
+    filename = get_root('data_collection/set_of_words/most common.txt')
     for i in simple_file_gen(filename):
         if i in words and not i in stopWords:
             count_simple += 1
@@ -58,15 +57,24 @@ def difficult_1(st: str):
 
 
 # функция выдающая словарь с распределением слов
-def words_distribution(st, _sorted=True):
+def words_distribution(st, _sorted=True, _names=True):
     dry = dict()
+    names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
     stopWords = set(stopwords.words('english'))
-    for i in word_file_gen(st):
-        if i not in stopWords:
-            if i in dry:
-                dry[i] += 1
-            else:
-                dry[i] = 1
+    if _names:
+        for i in word_file_gen(st):
+            if i not in stopWords:
+                if i in dry:
+                    dry[i] += 1
+                else:
+                    dry[i] = 1
+    else:
+        for i in word_file_gen(st):
+            if i not in stopWords and i not in names:
+                if i in dry:
+                    dry[i] += 1
+                else:
+                    dry[i] = 1
 
     delete_s(dry)
     return sort_dict(dry) if _sorted else dry
@@ -108,10 +116,13 @@ def get_piece_dict(d: dict, t=4):
 # функция, выдающаяя жанровое распределение книги
 def genre_distribution(st: str):
     d = words_distribution(st)
-    filename = get_project_root().joinpath('data_collection/genres.json')
-    with open(filename, 'r') as js:
+    names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
+    with open(get_root('data_collection/genres.json'), 'r') as js:
         genre = json.load(js)
-    dic = get_piece_dict(d)
+        genre['fiction'] = names
+
+
+    dic = get_piece_dict(d,8)
 
     result = dict()
     for i, j in genre.items():
