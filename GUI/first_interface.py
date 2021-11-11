@@ -17,7 +17,7 @@ class Mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
         directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
         d = analise.genre_distribution(directory)
         for i,j in d.items():
-            self.listWidget.addItem(f'{i}: {j}')
+            self.listWidget.addItem(f'{i}: {j}, aboba')
 
 
 
