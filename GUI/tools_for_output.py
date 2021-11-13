@@ -1,4 +1,6 @@
+from program import analise
 import matplotlib.pyplot as plt
+from src.utils import get_root
 
 
 def circle_plot(d: dict):
@@ -15,3 +17,9 @@ def delete_zeros(d: dict):
         if j > 0:
             nd[i] = j
     return nd
+
+
+def get_lines():
+    for i, j, k in analise.get_difficult_data(20, 3):
+        yield f"{round(i*100)}%  {j}: {', '.join(k)}"
+

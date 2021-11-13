@@ -1,10 +1,10 @@
 import sys
-from GUI import diagrams
+from GUI import tools_for_output as tools
 from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from program import analise
-
+from PyQt5 import QtGui
 
 class PieCanvas(FigureCanvasQTAgg):
     def __init__(self, fig=None):
@@ -26,11 +26,12 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             analise.words_distribution(self.directory)
             self.__draw_pie()
             self.__write_name()
+            self.__print_words()
 
     def __draw_pie(self):
         d = analise.genre_distribution(self.directory)
         self.verticalLayout_1.removeWidget(self.canvas_p)
-        self.canvas_p = PieCanvas(diagrams.circle_plot(d))
+        self.canvas_p = PieCanvas(tools.circle_plot(d))
         self.verticalLayout_1.addWidget(self.canvas_p)
 
     def __write_name(self):
@@ -38,6 +39,10 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         new_name = new_name.split('/')[-1]
         new_name = new_name.split('.txt')[0]
         self.label.setText(new_name)
+
+    def __print_words(self):
+        for i in tools.get_lines():
+            self.listWidget.addItem(i)
 
 
 
