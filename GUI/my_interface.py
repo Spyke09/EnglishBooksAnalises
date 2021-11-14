@@ -41,7 +41,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label.setText(new_name)
 
     def __print_words(self):
-        for i in tools.get_lines():
+        for i in tools.get_lines(50, 5):
             self.listWidget.addItem(i)
 
 

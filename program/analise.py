@@ -134,23 +134,32 @@ def sort_dict(d):
         res[i] = d[i]
     return res
 
-
-def get_difficult_data(n: int, translate_n):
-    with open(get_root('program/dict_words.json'), 'r') as js:
-        d: dict = json.load(js)
+def _clear_ease_words(d: dict):
     stopWords = set(stopwords.words('english'))
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
     filename = get_root('data_collection/set_of_words/most common.txt')
-    tra = tr.Translator()
     for i in chain(simple_file_gen(filename), stopWords, names):
         if i in d:
             d.pop(i)
+
+
+def get_difficult_data(n: int, translate_n, _ease=True):
+    with open(get_root('program/dict_words.json'), 'r') as js:
+        d: dict = json.load(js)
+
+    if not _ease:
+        _clear_ease_words(d)
+
+    tra = tr.Translator()
     l = sum(d.values())
-    for i, (j, k) in enumerate(d.items()):
+    i = 0
+
+    for j, k in d.items():
         if i == n:
             break
         t = tra.translate(j)
         if not t:
             continue
+        i += 1
         yield k/l, j, t[:translate_n]
 

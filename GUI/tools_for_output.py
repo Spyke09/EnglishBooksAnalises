@@ -19,7 +19,7 @@ def delete_zeros(d: dict):
     return nd
 
 
-def get_lines():
-    for i, j, k in analise.get_difficult_data(20, 3):
-        yield f"{round(i*100)}%  {j}: {', '.join(k)}"
+def get_lines(n, translate_n):
+    for i, j, k in analise.get_difficult_data(n, translate_n):
+        yield f"{round(i*100, 2)}%  {j}: {', '.join(k)}"
 
