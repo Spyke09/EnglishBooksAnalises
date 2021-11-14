@@ -5,7 +5,7 @@ from src.utils import get_root
 # класс отвечающий за перевод слов
 class Translator:
     def __init__(self):
-        self._conn = conn = sq.connect(get_root('data_collection\dict_without_repeates.db'))
+        self._conn = conn = sq.connect(get_root(r'data_collection\dict_without_repeates.db'))
         self._cur = conn.cursor()
 
     def translate(self, word: str):

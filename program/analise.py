@@ -1,6 +1,6 @@
 import json
-
 import nltk
+from itertools import chain
 from program import translator as tr
 from nltk.corpus import stopwords
 from src.utils import get_root
@@ -46,32 +46,23 @@ def difficult_1(st: str):
     count_simple = 0
     filename = get_root('data_collection/set_of_words/most common.txt')
     for i in simple_file_gen(filename):
-        if i in words and not i in stop_words:
+        if i in words and i not in stop_words:
             count_simple += 1
     return round(count_simple / len(words) * 100)
 
 
 # функция выдающая словарь с распределением слов и сохраняющая словарь в json файл
-def words_distribution(st, _sorted=True, _names=True):
+def words_distribution(st, _sorted=True):
     dry = dict()
-    names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
     stopWords = set(stopwords.words('english'))
-    if _names:
-        for i in word_file_gen(st):
-            if i not in stopWords:
-                if i in dry:
-                    dry[i] += 1
-                else:
-                    dry[i] = 1
-    else:
-        for i in word_file_gen(st):
-            if i not in stopWords and i not in names:
-                if i in dry:
-                    dry[i] += 1
-                else:
-                    dry[i] = 1
+    for i in word_file_gen(st):
+        if i not in stopWords:
+            if i in dry:
+                dry[i] += 1
+            else:
+                dry[i] = 1
 
-    delete_s(dry)
+    _delete_s(dry)
     sort_dry = sort_dict(dry)
 
     with open(get_root('program/dict_words.json'), 'w') as js:
@@ -79,7 +70,7 @@ def words_distribution(st, _sorted=True, _names=True):
 
 
 # убирает окончания в англ. словах
-def delete_s(dry: dict):
+def _delete_s(dry: dict):
     tra = tr.Translator()
     for i in dry.keys():
         if len(i) > 3 and i[-1] == 's':
@@ -103,17 +94,18 @@ def print_word_d():
 
 
 # выдает часть словаря
-def get_piece_dict(d: dict, t=4):
+def get_piece_dict(d: dict, border=20):
+    border = min(max(d.values()) / 2, border)
     dic = dict()
-    maxv = max(d.values())
     for i, j in d.items():
-        if j >= maxv / t:
-            dic[i] = j
+        dic[i] = j
+        if j < border:
+            break
     return dic
 
 
 # функция, выдающаяя жанровое распределение книги
-def genre_distribution(st: str):
+def genre_distribution(border):
     with open(get_root('program/dict_words.json'), 'r') as js:
         d = json.load(js)
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
@@ -121,7 +113,7 @@ def genre_distribution(st: str):
         genre = json.load(js)
         genre['fiction'] = names
 
-    dic = get_piece_dict(d, 8)
+    dic = get_piece_dict(d, border)
 
     result = dict()
     for i, j in genre.items():
@@ -137,7 +129,37 @@ def genre_distribution(st: str):
 # функция сортирующая словарь по второму элементу
 def sort_dict(d):
     res = dict()
-    so = sorted(d, key=d.get)
+    so = sorted(d, key=d.get, reverse=True)
     for i in so:
         res[i] = d[i]
     return res
+
+
+def _clear_ease_words(d: dict):
+    stopWords = set(stopwords.words('english'))
+    names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
+    filename = get_root('data_collection/set_of_words/most common.txt')
+    for i in chain(simple_file_gen(filename), stopWords, names):
+        if i in d:
+            d.pop(i)
+
+
+def get_difficult_data(n: int, translate_n, _ease=True):
+    with open(get_root('program/dict_words.json'), 'r') as js:
+        d: dict = json.load(js)
+
+    if not _ease:
+        _clear_ease_words(d)
+
+    tra = tr.Translator()
+    sum_v = sum(d.values())
+    i = 0
+
+    for j, k in d.items():
+        if i == n:
+            break
+        t = tra.translate(j)
+        if not t:
+            continue
+        i += 1
+        yield k / sum_v, j, t[:translate_n]

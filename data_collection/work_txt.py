@@ -15,6 +15,7 @@ def rewrite(str1, str2):
     f.close()
     g.close()
 
+
 # дозапись в финальный словарь из ещё одного словаря
 def more_rewrite(str1, str2):
     f = open(str1, "r")
@@ -32,6 +33,7 @@ def more_rewrite(str1, str2):
     f.close()
     g.close()
 
+
 # функция дающаа наибольшую длину строки в txt файле
 def max_len(str1):
     f = open(str1, 'r')
@@ -42,6 +44,7 @@ def max_len(str1):
         if not s:
             break
     print(m)
+
 
 # функция для анализа распределения длины строк в словаре
 def len_distribution(str1, maxx):
@@ -56,6 +59,7 @@ def len_distribution(str1, maxx):
         i += 1
     f.close()
     return m
+
 
 # функция выдающаа все встречаемые символы в файле
 # нужна чтобы убрать всякий мусор из файла
@@ -74,6 +78,7 @@ def count_symbols(text):
     f.close()
     return a
 
+
 # функция, дающаа dict с встречаюмостью каждого слова
 def count_words(text):
     f = open(text, 'r')
@@ -89,7 +94,6 @@ def count_words(text):
             a[temp] = 1
     f.close()
     return a
-
 
 # rewrite(r"dictionaries\best_dict1.txt", "final.txt")
 # more_rewrite(r"dictionaries\enrus1.txt", 'final.txt')

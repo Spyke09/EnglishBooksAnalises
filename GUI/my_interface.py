@@ -1,5 +1,5 @@
 import sys
-from GUI import diagrams
+from GUI import tools_for_output as tools
 from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
@@ -9,7 +9,6 @@ from program import analise
 class PieCanvas(FigureCanvasQTAgg):
     def __init__(self, fig=None):
         super(PieCanvas, self).__init__(fig)
-
 
 
 class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -26,26 +25,32 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             analise.words_distribution(self.directory)
             self.__draw_pie()
             self.__write_name()
+            self.__print_words(50)
 
     def __draw_pie(self):
-        d = analise.genre_distribution(self.directory)
+        d = analise.genre_distribution(50)
         self.verticalLayout_1.removeWidget(self.canvas_p)
-        self.canvas_p = PieCanvas(diagrams.circle_plot(d))
+        self.canvas_p = PieCanvas(tools.circle_plot(d))
         self.verticalLayout_1.addWidget(self.canvas_p)
+        self.label_3.setText('Диаграмма распределения жанров:')
 
     def __write_name(self):
         new_name = self.directory.replace('-', ' ').replace('_', ' ')
         new_name = new_name.split('/')[-1]
         new_name = new_name.split('.txt')[0]
-        self.label.setText(new_name)
+        self.label.setText(f"Название книги: {new_name}")
 
+    def __print_words(self, n):
+        self.listWidget.clear()
+        self.label_2.setText(f'Топ {n} самых встречающихся слов:')
+        for i in tools.get_lines(n, 5):
+            self.listWidget.addItem(i)
 
 
 def run():
     app = QtWidgets.QApplication([])
     application = MyWindow()
     application.show()
-
     sys.exit(app.exec())
 
 # pyuic5 GUI/untitled.ui -o GUI/first_qt.py
