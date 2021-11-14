@@ -9,7 +9,7 @@ from nltk.stem.snowball import SnowballStemmer
 # функция-генератор для чтения файла
 def words_gen(st: str):
     f = open(fr'data_collection\set of words\{st}', 'r')
-    while (1):
+    while 1:
         a = f.readline()
         if not a:
             break
@@ -36,9 +36,9 @@ def get_dict_dict(st):
         a = tokenizer.tokenize(a.lower())
         for j in a:
             i = snow_stemmer.stem(j)
-            if not i in stopWords:
+            if i not in stopWords:
                 length += 1
-                if not i in s:
+                if i not in s:
                     s[i] = 1.0
                 else:
                     s[i] += 1.0
@@ -78,9 +78,9 @@ def difficult1(input_set: dict):
 
 
 def difficult2(input_set: dict):
-    l = len(input_set)
+    len_n = len(input_set)
     temp = input_set.copy()
     for i in words_gen("most common.txt"):
         if i in temp:
             temp.pop(i)
-    return (l - len(temp)) / l
+    return (len_n - len(temp)) / len_n

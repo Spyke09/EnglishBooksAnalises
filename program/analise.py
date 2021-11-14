@@ -46,7 +46,7 @@ def difficult_1(st: str):
     count_simple = 0
     filename = get_root('data_collection/set_of_words/most common.txt')
     for i in simple_file_gen(filename):
-        if i in words and not i in stop_words:
+        if i in words and i not in stop_words:
             count_simple += 1
     return round(count_simple / len(words) * 100)
 
@@ -95,7 +95,7 @@ def print_word_d():
 
 # выдает часть словаря
 def get_piece_dict(d: dict, border=20):
-    border = min(max(d.values())/2, border)
+    border = min(max(d.values()) / 2, border)
     dic = dict()
     for i, j in d.items():
         dic[i] = j
@@ -105,7 +105,7 @@ def get_piece_dict(d: dict, border=20):
 
 
 # функция, выдающаяя жанровое распределение книги
-def genre_distribution(st: str, border):
+def genre_distribution(border):
     with open(get_root('program/dict_words.json'), 'r') as js:
         d = json.load(js)
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
@@ -134,6 +134,7 @@ def sort_dict(d):
         res[i] = d[i]
     return res
 
+
 def _clear_ease_words(d: dict):
     stopWords = set(stopwords.words('english'))
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
@@ -151,7 +152,7 @@ def get_difficult_data(n: int, translate_n, _ease=True):
         _clear_ease_words(d)
 
     tra = tr.Translator()
-    l = sum(d.values())
+    sum_v = sum(d.values())
     i = 0
 
     for j, k in d.items():
@@ -161,5 +162,4 @@ def get_difficult_data(n: int, translate_n, _ease=True):
         if not t:
             continue
         i += 1
-        yield k/l, j, t[:translate_n]
-
+        yield k / sum_v, j, t[:translate_n]
