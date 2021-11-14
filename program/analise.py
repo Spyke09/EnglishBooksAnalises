@@ -94,18 +94,18 @@ def print_word_d():
 
 
 # выдает часть словаря
-def get_piece_dict(d: dict, t=4):
+def get_piece_dict(d: dict, border=20):
+    border = min(max(d.values())/2, border)
     dic = dict()
-    maxv = max(d.values())*(t-1)/t
-    for i, (j, k) in enumerate(d.items()):
-        dic[j] = k
-        if i > maxv:
+    for i, j in d.items():
+        dic[i] = j
+        if j < border:
             break
     return dic
 
 
 # функция, выдающаяя жанровое распределение книги
-def genre_distribution(st: str):
+def genre_distribution(st: str, border):
     with open(get_root('program/dict_words.json'), 'r') as js:
         d = json.load(js)
     names = set(simple_file_gen(get_root(r'data_collection\set_of_words\names.txt')))
@@ -113,7 +113,7 @@ def genre_distribution(st: str):
         genre = json.load(js)
         genre['fiction'] = names
 
-    dic = get_piece_dict(d, 8)
+    dic = get_piece_dict(d, border)
 
     result = dict()
     for i, j in genre.items():

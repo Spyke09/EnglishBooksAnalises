@@ -6,10 +6,10 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from program import analise
 from PyQt5 import QtGui
 
+
 class PieCanvas(FigureCanvasQTAgg):
     def __init__(self, fig=None):
         super(PieCanvas, self).__init__(fig)
-
 
 
 class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -29,7 +29,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.__print_words()
 
     def __draw_pie(self):
-        d = analise.genre_distribution(self.directory)
+        d = analise.genre_distribution(self.directory, 50)
         self.verticalLayout_1.removeWidget(self.canvas_p)
         self.canvas_p = PieCanvas(tools.circle_plot(d))
         self.verticalLayout_1.addWidget(self.canvas_p)
@@ -41,9 +41,9 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label.setText(new_name)
 
     def __print_words(self):
+        self.listWidget.clear()
         for i in tools.get_lines(50, 5):
             self.listWidget.addItem(i)
-
 
 
 def run():
