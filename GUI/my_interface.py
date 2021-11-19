@@ -23,12 +23,12 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
         if self.directory:
             analise.words_distribution(self.directory)
-            self.__draw_pie()
+            self.__draw_pie(50)
             self.__write_name()
             self.__print_words(50)
 
-    def __draw_pie(self):
-        d = analise.genre_distribution(50)
+    def __draw_pie(self, border):
+        d = analise.genre_distribution(border)
         self.verticalLayout_1.removeWidget(self.canvas_p)
         self.canvas_p = PieCanvas(tools.circle_plot(d))
         self.verticalLayout_1.addWidget(self.canvas_p)
