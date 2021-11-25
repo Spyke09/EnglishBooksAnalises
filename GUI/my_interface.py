@@ -3,7 +3,7 @@ from GUI import tools_for_output as tools
 from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-from program import analise
+from program import analise, converting
 
 
 class PieCanvas(FigureCanvasQTAgg):
@@ -21,6 +21,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def browse_folder(self):
         self.directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
+        self.directory = converting.choice(self.directory)
         if self.directory:
             analise.words_distribution(self.directory)
             self.__draw_pie(50)
@@ -37,6 +38,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __write_name(self):
         new_name = self.directory.replace('-', ' ').replace('_', ' ')
         new_name = new_name.split('/')[-1]
+        new_name = new_name.split("\\")[-1]
         new_name = new_name.split('.txt')[0]
         self.label.setText(f"Название книги: {new_name}")
 
