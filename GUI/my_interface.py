@@ -20,7 +20,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.directory = ''
 
     def browse_folder(self):
-        self.directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")[0]
+        self.directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите файл", "", "Text files (*.txt)")[0]
         if self.directory:
             analise.words_distribution(self.directory)
             self.__draw_pie(50)
