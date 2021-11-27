@@ -10,7 +10,8 @@ def choice(path: str) -> str:
 
 def converter_pdf(path: str) -> str:
     pdffileobj = open(path, 'rb')
-    dir_txt = str(get_root("program/converted/temp.txt"))
+    d = path.split('/')[-1].split('\\')[-1].split('.')[0]
+    dir_txt = str(get_root(f"program/converted/{d}.txt"))
     pdfreader = PyPDF2.PdfFileReader(pdffileobj)
     file1 = open(dir_txt, "w")
     failures = 0
