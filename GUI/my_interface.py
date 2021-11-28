@@ -18,6 +18,11 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.browse_folder)
         self.canvas_p = None
         self.directory = ''
+        self.label.clear()
+        self.label_2.clear()
+        self.label_3.clear()
+        self.label_4.clear()
+        self.label_5.clear()
 
     def browse_folder(self):
 
@@ -28,6 +33,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.__draw_pie(50)
             self.__write_name()
             self.__print_words(50)
+            self.__print_difficults()
 
     def __draw_pie(self, border):
         d = analise.genre_distribution(border)
@@ -48,6 +54,14 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label_2.setText(f'Топ {n} самых встречающихся слов:')
         for i in tools.get_lines(n, 5):
             self.listWidget.addItem(i)
+        self.listWidget_2.clear()
+        self.label_4.setText(f'Топ {n} самых встречающихся "сложных" слов:')
+        for i in tools.get_lines(n, 5, True):
+            self.listWidget_2.addItem(i)
+
+    def __print_difficults(self):
+        self.label_5.setText(analise.difficult())
+
 
 
 def run():

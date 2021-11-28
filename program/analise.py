@@ -35,31 +35,34 @@ def simple_file_gen(st: str):
 
 
 # анализ текста на сложность - 1й вариант
-def difficult_1(st: str):
-    tl = tr.Translator()
-    stop_words = set(stopwords.words('english'))
-    words = set()
-    for i in word_file_gen(st):
-        if tl.translate(i) and not (i in words):
-            words.add(i)
-
-    count_simple = 0
+def difficult() -> str:
+    with open(get_root('program/dict_words.json'), 'r') as js:
+        d = json.load(js)
     filename = get_root('data_collection/set_of_words/most common.txt')
+    count1 = 0
+    count2 = 0
+    c = 0
     for i in simple_file_gen(filename):
-        if i in words and i not in stop_words:
-            count_simple += 1
-    return round(count_simple / len(words) * 100)
+        count1 += 1 if i in d else 0
+        count2 += d[i] if i in d else 0
+        c += 1
+
+    a, b, c = map(lambda x: round(100*(1-x),1), (count1/len(d), count2/sum(d.values()), count1/c))
+
+    return f"Сложность 1: {a}% \nСложность 2: {b}% \nСложность 3: {c}%"
+# плотность1, плотность2, (количество тех, что есть в most_common / всего в most_common)
 
 
 # функция выдающая словарь с распределением слов и сохраняющая словарь в json файл
 def words_distribution(st, _sorted=True):
     dry = dict()
     stopWords = set(stopwords.words('english'))
+    tl = tr.Translator()
     for i in word_file_gen(st):
-        if i not in stopWords:
+        if (i not in stopWords):
             if i in dry:
                 dry[i] += 1
-            else:
+            elif tl.translate(i):
                 dry[i] = 1
 
     _delete_s(dry)
