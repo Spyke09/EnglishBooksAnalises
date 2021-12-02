@@ -32,7 +32,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             analise.words_distribution(self.directory)
             self.__draw_pie(50)
             self.__write_name()
-            self.__print_words(50)
+            self.__print_words(100)
             self.__print_difficults()
 
     def __draw_pie(self, border):
