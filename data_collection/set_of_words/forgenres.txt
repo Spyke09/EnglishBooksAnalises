@@ -1,0 +1,7 @@
+business: company, work, time, performance, leadership, people, business, management, employee, process
+science: time, science, would, method, professor, human, year, history, theory, new
+tutorials: make, learn, exercise, task, test, table, skill, read, example, using
+history: king, army, time, city, war, came, year, death, end, men
+religion: monastery, priest, faith, god, church, soul, prayer, demon, worship, holy
+computers: information, computer, software, company, code, data, use, design, program, programming
+art: art, work, artist, style, museum, architecture, painting, masterpiece, literature, picture, beauty
