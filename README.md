@@ -32,6 +32,6 @@
 
 ## Примеры запуска
 
-![](https://github.com/Spyke09/EnglishBooksAnalysis/tree/master/scr/1.png)
-![](https://github.com/Spyke09/EnglishBooksAnalysis/tree/master/scr/1.png)
-![](https://github.com/Spyke09/EnglishBooksAnalysis/tree/master/scr/1.png)
+![alt text](scr/1.png)
+![alt text](scr/2.png)
+![alt text](scr/3.png)
