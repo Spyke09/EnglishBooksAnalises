@@ -32,6 +32,14 @@
 
 ## Примеры запуска
 
+Книга про искусство
+
 ![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/src/1.png)
+
+Книга-учебник по архитектуре кода
+
 ![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/src/2.png)
+
+Книга про религию
+
 ![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/src/3.png)
