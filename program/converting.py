@@ -1,12 +1,14 @@
 import PyPDF2
 from src.utils import get_root
 
+
 def choice(path: str) -> str:
     t = path.split('.')[-1]
-    if t =='txt':
+    if t == 'txt':
         return path
     if t == 'pdf':
         return converter_pdf(path)
+
 
 def converter_pdf(path: str) -> str:
     pdffileobj = open(path, 'rb')

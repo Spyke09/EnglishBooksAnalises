@@ -30,7 +30,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.directory = converting.choice(self.directory)
         if self.directory:
             analise.words_distribution(self.directory)
-            self.__draw_pie(50)
+            self.__draw_pie(100)
             self.__write_name()
             self.__print_words(100)
             self.__print_difficults()
