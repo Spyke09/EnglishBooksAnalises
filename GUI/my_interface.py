@@ -1,9 +1,11 @@
+import os
 import sys
 from GUI import tools_for_output as tools
 from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from program import analise, converting
+from src.utils import get_root
 
 
 class PieCanvas(FigureCanvasQTAgg):
@@ -23,16 +25,18 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label_3.clear()
         self.label_4.clear()
         self.label_5.clear()
+        self.lineEdit.textChanged.connect(self.__print_words)
 
     def browse_folder(self):
 
-        self.directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите файл","","Text files(*.txt);; Pdf files(*.pdf)")[0]
+        self.directory = \
+            QtWidgets.QFileDialog.getOpenFileName(self, "Выберите файл", "", "Text files(*.txt);; Pdf files(*.pdf)")[0]
         self.directory = converting.choice(self.directory)
         if self.directory:
             analise.words_distribution(self.directory)
             self.__draw_pie(100)
             self.__write_name()
-            self.__print_words(100)
+            self.__print_words()
             self.__print_difficults()
 
     def __draw_pie(self, border):
@@ -49,8 +53,15 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         new_name = new_name.split('.txt')[0]
         self.label.setText(f"Название книги: {new_name}")
 
-    def __print_words(self, n):
+    def __print_words(self):
+        if not os.path.exists(get_root('program/dict_words.json')):
+            return
         self.listWidget.clear()
+        try:
+            n = int(self.lineEdit.text())
+            n = 50 if n < 0 else n
+        except:
+            n = 50
         self.label_2.setText(f'Топ {n} самых встречающихся слов:')
         for i in tools.get_lines(n, 5):
             self.listWidget.addItem(i)
@@ -63,11 +74,12 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label_5.setText(analise.difficult())
 
 
-
 def run():
     app = QtWidgets.QApplication([])
     application = MyWindow()
     application.show()
+    if os.path.exists(get_root('program/dict_words.json')):
+        os.remove(get_root('program/dict_words.json'))
     sys.exit(app.exec())
 
 # pyuic5 GUI/untitled.ui -o GUI/first_qt.py

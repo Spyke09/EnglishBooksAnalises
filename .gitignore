@@ -2,4 +2,4 @@
 /data_collection/final.txt
 /program/dict_words.json
 /program/converted
-__pycache__
+*__pycache__
