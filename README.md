@@ -34,12 +34,12 @@
 
 Книга про искусство
 
-![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/src/2.png)
+![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/examples/2.png)
 
 Книга-учебник по архитектуре кода
 
-![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/src/1.png)
+![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/examples/1.png)
 
 Книга про религию
 
-![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/src/3.png)
+![alt text](https://github.com/Spyke09/EnglishBooksAnalysis/blob/master/examples/3.png)
