@@ -3,7 +3,7 @@ import nltk
 from itertools import chain
 from program import translator as tr
 from nltk.corpus import stopwords
-from src.utils import get_root
+from program.utils import get_root
 
 
 # функция-генератор получает на входе путь к файлу txt и выдает слова

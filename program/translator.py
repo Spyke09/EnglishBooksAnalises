@@ -1,5 +1,5 @@
 import sqlite3 as sq
-from src.utils import get_root
+from program.utils import get_root
 
 
 # класс отвечающий за перевод слов

@@ -5,7 +5,7 @@ from PyQt5 import QtWidgets
 from GUI.first_qt import Ui_MainWindow
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from program import analise, converting
-from src.utils import get_root
+from program.utils import get_root
 
 
 class PieCanvas(FigureCanvasQTAgg):
